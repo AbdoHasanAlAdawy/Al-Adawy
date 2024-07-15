@@ -1,0 +1,192 @@
+
+html
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr.Abdo Al-Adawy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+            text-align: right;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #0779e4 3px solid;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header li {
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        header #branding {
+            float: right;
+        }
+        header #branding h1 {
+            margin: 0;
+        }
+        header nav {
+            float: left;
+            margin-top: 10px;
+        }
+        section#showcase {
+            min-height: 400px;
+            background: #0779e4;
+            color: #fff;
+            text-align: center;
+            padding: 40px 0;
+        }
+        section#showcase h1 {
+            margin-top: 100px;
+            font-size: 55px;
+        }
+        section#showcase p {
+            font-size: 20px;
+        }
+        .content {
+            padding: 20px;
+            background: #fff;
+            margin-top: 20px;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 20px;
+        }
+        .edit-btn {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 5px 10px;
+            background: #0779e4;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .save-btn {
+            display: none;
+            margin: 10px 0;
+            padding: 5px 10px;
+            background: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .editable {
+            border: 1px solid transparent;
+            padding: 5px;
+        }
+        .editable:hover {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1>Dr.Abdo Al-Adawy</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">حول</a></li>
+                    <li><a href="#contact">تواصل</a></li>
+                    <li><a href="#faq">أسئلة</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="showcase">
+        <div class="container">
+            <h1 class="editable" contenteditable="false">مرحبًا بكم في صفحتي الشخصية</h1>
+            <p class="editable" contenteditable="false">أنا عبدالرحمن حسن محمد، طالب طب وأود تدريس مادة الأحياء.</p>
+            <button class="edit-btn" onclick="editContent()">تعديل</button>
+            <button class="save-btn" onclick="saveContent()">حفظ</button>
+
+        </div>
+    </section>
+
+    <section class="content" id="about">
+        <div class="container">
+            <h2>حول</h2>
+            <p class="editable" contenteditable="false">معك دكتور عبد الرحمن حسن.</p>
+            <button class="edit-btn" onclick="editContent()">تعديل</button>
+            <button class="save-btn" onclick="saveContent()">حفظ</button>
+        </div>
+    </section>
+
+    <section class="content" id="contact">
+        <div class="container">
+            <h2>تواصل</h2>
+            <p class="editable" contenteditable="false">يمكنكم التواصل معي عبر البريد الإلكتروني: <a href="mailto:example@example.com" class="editable" contenteditable="false">example@example.com</a></p>
+            <button class="edit-btn" onclick="editContent()">تعديل</button>
+            <button class="save-btn" onclick="saveContent()">حفظ</button>
+        </div>
+    </section>
+
+    <section class="content" id="faq">
+        <div class="container">
+            <h2>أسئلة</h2>
+            <p class="editable" contenteditable="false">اسألني.</p>
+            <button class="edit-btn" onclick="editContent()">تعديل</button>
+            <button class="save-btn" onclick="saveContent()">حفظ</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>حقوق النشر © 2024 Dr.Abdo Al-Adawy. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script>
+        function editContent() {
+            document.querySelectorAll('.editable').forEach(function(element) {
+                element.contentEditable = true;
+                element.style.border = '1px solid #ccc';
+            });
+            document.querySelectorAll('.edit-btn').forEach(function(btn) {
+                btn.style.display = 'none';
+            });
+            document.querySelectorAll('.save-btn').forEach(function(btn) {
+                btn.style.display = 'inline-block';
+            });
+        }
+
+        function saveContent() {
+            document.querySelectorAll('.editable').forEach(function(element) {
+                element.contentEditable = false;
+                element.style.border = '1px solid transparent';
+            });
+            document.querySelectorAll('.edit-btn').forEach(function(btn) {
+                btn.style.display = 'inline-block';
+            });
+            document.querySelectorAll('.save-btn').forEach(function(btn) {
+                btn.style.display = 'none';
+            });
+        }
+    </script>
+</body>
+</html>
